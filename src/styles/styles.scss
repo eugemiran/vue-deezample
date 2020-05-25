@@ -1,0 +1,41 @@
+@import "constants";
+
+html {
+  height: 100%;
+}
+
+body {
+  background: $white;
+  font-weight: 400;
+  height: 100%;
+  line-height: 1.25;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  -webkit-text-size-adjust: 100%;
+}
+
+input {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid $input-border;
+}
+
+button {
+  background: $white;
+  border-radius: 5px;
+  border: 1px solid $input-border;
+  cursor: pointer;
+
+  &:hover {
+    background: $salmon;
+    border: 1px solid $white;
+    color: $white;
+  }
+
+  &:active {
+    background: $salmon;
+    border: 1px solid $white;
+    color: $white;
+  }
+}
