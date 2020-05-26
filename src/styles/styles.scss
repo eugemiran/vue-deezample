@@ -16,9 +16,11 @@ body {
 }
 
 input {
-  font-size: 14px;
   border-radius: 5px;
   border: 1px solid $input-border;
+  font-size: 14px;
+  height: 1.5rem;
+  padding-left: 0.5rem;
 }
 
 button {
@@ -26,6 +28,7 @@ button {
   border-radius: 5px;
   border: 1px solid $input-border;
   cursor: pointer;
+  font-weight: 500;
 
   &:hover {
     background: $salmon;

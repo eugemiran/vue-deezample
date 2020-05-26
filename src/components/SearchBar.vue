@@ -35,6 +35,7 @@ export default {
 
 .search-bar {
   background: $salmon;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2rem;
