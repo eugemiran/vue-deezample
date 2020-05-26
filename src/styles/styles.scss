@@ -15,6 +15,16 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+a {
+  color: $dark-blue;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba($dark-blue, 0.5);
+  }
+}
+
 input {
   border-radius: 5px;
   border: 1px solid $input-border;

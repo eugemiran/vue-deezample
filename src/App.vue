@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
+    <NavBar />
     <router-view />
   </div>
 </template>
 
+<script lang="ts">
+import NavBar from "@/components/NavBar";
+
+export default {
+  components: {
+    NavBar
+  }
+};
+</script>
 <style lang="scss">
+@import "@/styles/constants";
 #app {
-  color: #2c3e50;
+  color: $dark-blue;
   display: flex;
   flex-direction: column;
   font-family: Avenir, Helvetica, Arial, sans-serif;
