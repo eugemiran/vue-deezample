@@ -24,7 +24,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/styles/constants";
+
 .home {
+  background: rgba($salmon, 0.5);
   display: flex;
   flex: 1;
 

@@ -6,6 +6,7 @@ html {
 
 body {
   background: $white;
+  color: $dark-blue;
   font-weight: 400;
   height: 100%;
   line-height: 1.25;
@@ -37,11 +38,12 @@ button {
   background: $white;
   border-radius: 5px;
   border: 1px solid $input-border;
+
   cursor: pointer;
   font-weight: 500;
 
   &:hover {
-    background: $salmon;
+    background: $mercury;
     border: 1px solid $white;
     color: $white;
   }

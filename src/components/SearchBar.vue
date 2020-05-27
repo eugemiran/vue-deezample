@@ -1,18 +1,14 @@
 <template>
   <div class="search-bar">
-    <label class="search-bar__label">Find your {{ entity }} ! </label>
-    <input
-      class="search-bar__input"
-      :placeholder="`Enter your ${entity}`"
-      v-model="text"
-    />
-    <button class="search-bar__button" type="button" @click="onClick">
-      OK!
-    </button>
+    <label class="search-bar__label">Find your {{ entity }} !</label>
+    <input class="search-bar__input" :placeholder="`Enter your ${entity}`" v-model="text" />
+    <button class="search-bar__button" type="button" @click="onClick">OK!</button>
   </div>
 </template>
 
 <script>
+import { SEARCH_ARTIST } from "@/store/actions";
+
 export default {
   name: "SearchBar",
   props: {
@@ -23,7 +19,7 @@ export default {
   }),
   methods: {
     onClick() {
-      alert(this.text);
+      this.$store.dispatch(SEARCH_ARTIST);
     }
   }
 };
@@ -34,7 +30,8 @@ export default {
 @import "@/styles/constants";
 
 .search-bar {
-  background: $salmon;
+  background: $mercury;
+  border: 1px solid $salmon;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
