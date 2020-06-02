@@ -1,25 +1,40 @@
 <template>
   <div class="search-bar">
     <label class="search-bar__label">Find your {{ entity }} !</label>
-    <input class="search-bar__input" :placeholder="`Enter your ${entity}`" v-model="text" />
-    <button class="search-bar__button" type="button" @click="onClick">OK!</button>
+    <input
+      class="search-bar__input"
+      :placeholder="`Enter your ${entity}`"
+      v-model="text"
+      v-on:keyup.enter="onClick"
+    />
+    <button class="search-bar__button" type="button" @click="onClick" :disabled="isDiabled">OK!</button>
   </div>
 </template>
 
 <script>
-import { SEARCH_ARTIST } from "@/store/actions";
-
 export default {
   name: "SearchBar",
   props: {
-    entity: String
+    entity: String,
+    onSearch: Function,
+    loading: Boolean
   },
   data: () => ({
     text: ""
   }),
+  computed: {
+    isDiabled() {
+      if (this.text.trim() === "" || this.$props.loading) {
+        return true;
+      }
+      return false;
+    }
+  },
   methods: {
     onClick() {
-      this.$store.dispatch(SEARCH_ARTIST);
+      if (this.text.trim() !== "" || !this.$props.loading) {
+        this.$props.onSearch(this.text);
+      }
     }
   }
 };
