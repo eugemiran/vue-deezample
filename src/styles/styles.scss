@@ -42,13 +42,13 @@ button {
   cursor: pointer;
   font-weight: 500;
 
-  &:hover {
+  &:hover:enabled {
     background: $mercury;
     border: 1px solid $white;
     color: $white;
   }
 
-  &:active {
+  &:active:enabled {
     background: $salmon;
     border: 1px solid $white;
     color: $white;
