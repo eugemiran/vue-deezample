@@ -1,6 +1,8 @@
 <template>
-  <div class="list">
-    <ListItem v-for="(element, i) in elements" :key="element.id + i" :element="element" />
+  <div class="list" :class="{ list__empty: isEmpty }">
+    <span v-if="isEmpty">The list is empty</span>
+
+    <ListItem v-for="(element, i) in elements" :key="element.id + i" :element="{...element, picture: element.pictureMedium}" />
   </div>
 </template>
 
@@ -17,6 +19,11 @@ export default {
       type: Array,
       required: true
     }
+  },
+  computed: {
+    isEmpty() {
+      return !this.$props.elements || this.$props.elements.length === 0;
+    }
   }
 };
 </script>
@@ -29,7 +36,16 @@ export default {
   border-bottom: 1px solid $white;
   border-left: 1px solid $white;
   border-right: 1px solid $white;
-  max-height: 15rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  max-height: 30rem;
   overflow-y: scroll;
+
+  &__empty {
+    display: flex;
+    span {
+      margin: auto;
+    }
+  }
 }
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div class="list-item">
-    <div class="list-item__picture" />
+    <div
+      class="list-item__picture"
+      :style="{ 'background-image': `url(${element.picture}`, 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': '10rem' }"
+    />
     <div class="list-item__info">
       <p class="list-item__info__title">{{ element.name }}</p>
     </div>
@@ -27,6 +30,10 @@ export default {
   border-top: 1px solid $white;
   &:hover {
     background: rgba($white, 0.5);
+  }
+
+  &__picture {
+    height: 10rem;
   }
 }
 </style>
