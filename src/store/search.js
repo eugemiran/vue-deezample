@@ -55,12 +55,14 @@ const mutations = {
     state.loading = true;
   },
   [SEARCH_ARTIST_MUTATIONS.SUCCESS](state, { data }) {
-    state.artists = state.artists.concat(data);
+    state.artists = data;
     state.success = true;
+    state.error = false;
     state.loading = false;
   },
   [SEARCH_ARTIST_MUTATIONS.ERROR](state) {
     state.error = true;
+    state.success = false;
     state.loading = false;
   },
   [SEARCH_ARTIST_MUTATIONS.RESET](state) {

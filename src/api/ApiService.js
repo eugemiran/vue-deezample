@@ -17,14 +17,12 @@ class ApiService {
     try {
       const response = await this.httpService.get(url);
       if (response && response.status == 200) {
-        const json = await response.json();
-        response.data = humps.camelizeKeys(json || REQUEST_ERROR);
-        return response.json();
+        response.data = humps.camelizeKeys(response.data || REQUEST_ERROR);
+        return response;
       } else {
         throw new Error(REQUEST_ERROR);
       }
     } catch (error) {
-      console.error(error);
       throw new Error(REQUEST_ERROR);
     }
   }

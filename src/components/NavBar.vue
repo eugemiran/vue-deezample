@@ -18,13 +18,13 @@ export default {};
 @import "@/styles/constants";
 
 .nav {
-  background: $salmon;
+  background: $mercury;
+  display: flex;
   height: 4rem;
 
   &__wrapper {
     display: flex;
     margin: auto;
-    padding-top: 1rem;
     width: $header-with;
   }
   &__logo {

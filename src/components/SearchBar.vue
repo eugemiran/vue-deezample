@@ -1,14 +1,13 @@
 <template>
   <div class="search-bar">
-    <label class="search-bar__label">Find your {{ entity }} ! </label>
+    <label class="search-bar__label">Find your {{ entity }} !</label>
     <input
       class="search-bar__input"
       :placeholder="`Enter your ${entity}`"
       v-model="text"
+      v-on:keyup.enter="onClick"
     />
-    <button class="search-bar__button" type="button" @click="onClick">
-      OK!
-    </button>
+    <button class="search-bar__button" type="button" @click="onClick" :disabled="isDiabled">OK!</button>
   </div>
 </template>
 
@@ -16,14 +15,26 @@
 export default {
   name: "SearchBar",
   props: {
-    entity: String
+    entity: String,
+    onSearch: Function,
+    loading: Boolean
   },
   data: () => ({
     text: ""
   }),
+  computed: {
+    isDiabled() {
+      if (this.text.trim() === "" || this.$props.loading) {
+        return true;
+      }
+      return false;
+    }
+  },
   methods: {
     onClick() {
-      alert(this.text);
+      if (this.text.trim() !== "" || !this.$props.loading) {
+        this.$props.onSearch(this.text);
+      }
     }
   }
 };
@@ -34,7 +45,8 @@ export default {
 @import "@/styles/constants";
 
 .search-bar {
-  background: $salmon;
+  background: $mercury;
+  border: 1px solid $salmon;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;

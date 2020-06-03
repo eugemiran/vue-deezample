@@ -2,7 +2,7 @@ import api from "@/api";
 
 class MusicService {
   static searchArtist({ artist }) {
-    return api.get(`/search?q=artist:"${artist}"`);
+    return api.get(`/search/artist?q=${artist}`);
   }
 }
 
