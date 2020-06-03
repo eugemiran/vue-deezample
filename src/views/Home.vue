@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <div class="home__main">
+    <div class="home__main" :class="{ home__main__success: isSuccess && artists.length !== 0 }">
       <SearchBar :entity="entity" :onSearch="onSearch" :loading="isLoading" />
-      <span v-if="isLoading">LOADING...</span>
+      <span v-if="isLoading" class="mt-4">LOADING...</span>
       <span v-if="isError && !isLoading">Oops, something went wrong. Try again later...</span>
-      <List v-if="!isLoading && artists && artists.length !== 0" :elements="artists" />
+      <List v-if="!isLoading && isSuccess" :elements="artists" />
     </div>
   </div>
 </template>
@@ -33,6 +33,9 @@ export default {
     },
     isError() {
       return this.$store.getters.isError;
+    },
+    isSuccess() {
+      return this.$store.getters.isSuccess;
     }
   },
   methods: {
@@ -55,7 +58,12 @@ export default {
     margin-left: auto;
     margin-right: auto;
     margin-top: 30vh;
-    width: 40rem;
+    width: 70rem;
+    transition: 1s;
+
+    &__success {
+      margin-top: 10vh;
+    }
   }
 }
 </style>
