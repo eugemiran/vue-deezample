@@ -25,7 +25,7 @@ export default {};
   &__wrapper {
     display: flex;
     margin: auto;
-    width: $header-with;
+    width: 70rem;
   }
   &__logo {
     flex: 1;
