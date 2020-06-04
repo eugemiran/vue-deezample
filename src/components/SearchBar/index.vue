@@ -8,14 +8,25 @@
         v-model="text"
         v-on:keyup.enter="onClick"
       />
-      <button class="search-bar__button" type="button" @click="onClick" :disabled="isDiabled">OK!</button>
+      <Button
+        class="search-bar__button"
+        type="secondary"
+        :onClick="onClick"
+        :disabled="isDiabled"
+      >
+        OK!
+      </Button>
     </div>
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button";
 export default {
   name: "SearchBar",
+  components: {
+    Button
+  },
   props: {
     entity: String,
     onSearch: Function,
@@ -47,7 +58,7 @@ export default {
 @import "@/styles/constants";
 
 .search-bar {
-  background: $mercury;
+  background: $tangerine;
   border: 1px solid $salmon;
   border-radius: 5px;
   display: flex;

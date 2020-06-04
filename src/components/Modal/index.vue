@@ -3,7 +3,7 @@
     <div class="modal" @click="onClose">
       <div class="modal__container shadow" @click.stop>
         <div class="modal__header">
-          <button class="mt-1 mr-2" @click="onClose">X</button>
+          <Button class="mt-1 mr-2" type="primary" :onClick="onClose">X</Button>
         </div>
         <div class="modal__body">
           <slot />
@@ -14,11 +14,15 @@
 </template>
 
 <script>
+import Button from "@/components/Button";
 import { MODALS } from "@/constants/portals";
 
 export default {
   props: {
     onClose: Function
+  },
+  components: {
+    Button
   },
   created() {
     this.MODALS = MODALS;

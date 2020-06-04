@@ -36,22 +36,8 @@ input {
 }
 
 button {
-  background: $white;
   border-radius: 5px;
   border: 1px solid $input-border;
-
   cursor: pointer;
   font-weight: 500;
-
-  &:hover:enabled {
-    background: $mercury;
-    border: 1px solid $white;
-    color: $white;
-  }
-
-  &:active:enabled {
-    background: $salmon;
-    border: 1px solid $white;
-    color: $white;
-  }
 }

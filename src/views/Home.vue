@@ -1,10 +1,19 @@
 <template>
   <div class="home">
-    <div class="home__main" :class="{ home__main__success: isSuccess && artists.length !== 0 }">
+    <div
+      class="home__main"
+      :class="{ home__main__success: isSuccess && artists.length !== 0 }"
+    >
       <SearchBar :entity="entity" :onSearch="onSearch" :loading="isLoading" />
       <span v-if="isLoading" class="mt-4">LOADING...</span>
-      <span v-if="isError && !isLoading">Oops, something went wrong. Try again later...</span>
-      <List v-if="!isLoading && isSuccess" :elements="artists" :onClick="toggleModal" />
+      <span v-if="isError && !isLoading"
+        >Oops, something went wrong. Try again later...</span
+      >
+      <List
+        v-if="!isLoading && isSuccess"
+        :elements="artists"
+        :onClick="toggleModal"
+      />
       <Modal v-if="showModal" :onClose="toggleModal" />
     </div>
   </div>
@@ -57,7 +66,7 @@ export default {
 @import "@/styles/constants";
 
 .home {
-  background: rgba($salmon, 0.5);
+  background: $pampas;
   display: flex;
   flex: 1;
 

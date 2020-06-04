@@ -18,7 +18,7 @@ export default {};
 @import "@/styles/constants";
 
 .nav {
-  background: $mercury;
+  background: $tangerine;
   display: flex;
   height: 4rem;
 
