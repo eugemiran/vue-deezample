@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item">
+  <div class="list-item pt-2" @click="onClick">
     <div
       class="list-item__picture"
       :style="{ 'background-image': `url(${element.picture}`, 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': '10rem' }"
@@ -16,7 +16,8 @@ export default {
     element: {
       type: Object,
       required: true
-    }
+    },
+    onClick: Function
   }
 };
 </script>
