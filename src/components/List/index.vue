@@ -1,13 +1,17 @@
 <template>
   <div class="list" :class="{ list__empty: isEmpty }">
     <span v-if="isEmpty">The list is empty</span>
-
-    <ListItem v-for="(element, i) in elements" :key="element.id + i" :element="{...element, picture: element.pictureMedium}" />
+    <ListItem
+      v-for="(element, i) in elements"
+      :onClick="onClick"
+      :key="element.id + i"
+      :element="{ ...element, picture: element.pictureMedium }"
+    />
   </div>
 </template>
 
 <script>
-import ListItem from "./ListItem.vue";
+import ListItem from "./ListItem";
 
 export default {
   data: () => ({}),
@@ -18,7 +22,8 @@ export default {
     elements: {
       type: Array,
       required: true
-    }
+    },
+    onClick: Function
   },
   computed: {
     isEmpty() {
@@ -37,9 +42,13 @@ export default {
   border-left: 1px solid $white;
   border-right: 1px solid $white;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 33.333%);
   max-height: 30rem;
   overflow-y: scroll;
+
+  @media (max-width: $sm) {
+    grid-template-columns: repeat(2, 50%);
+  }
 
   &__empty {
     display: flex;

@@ -4,7 +4,8 @@
       <SearchBar :entity="entity" :onSearch="onSearch" :loading="isLoading" />
       <span v-if="isLoading" class="mt-4">LOADING...</span>
       <span v-if="isError && !isLoading">Oops, something went wrong. Try again later...</span>
-      <List v-if="!isLoading && isSuccess" :elements="artists" />
+      <List v-if="!isLoading && isSuccess" :elements="artists" :onClick="toggleModal" />
+      <Modal v-if="showModal" :onClose="toggleModal" />
     </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
 <script>
 import { SEARCH_ARTIST } from "@/store/actions";
 import List from "@/components/List";
+import Modal from "@/components/Modal";
 import SearchBar from "@/components/SearchBar";
 import { SEARCH_OPTIONS } from "@/constants/search";
 
@@ -19,10 +21,12 @@ export default {
   name: "Home",
   components: {
     List,
+    Modal,
     SearchBar
   },
   data: () => ({
-    entity: SEARCH_OPTIONS.ALBUM
+    entity: SEARCH_OPTIONS.ALBUM,
+    showModal: false
   }),
   computed: {
     artists() {
@@ -41,6 +45,9 @@ export default {
   methods: {
     onSearch(artist) {
       this.$store.dispatch(SEARCH_ARTIST, { artist });
+    },
+    toggleModal() {
+      this.showModal = !this.showModal;
     }
   }
 };
