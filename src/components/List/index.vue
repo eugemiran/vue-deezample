@@ -37,7 +37,7 @@ export default {
 @import "@/styles/constants";
 
 .list {
-  background: rgba($salmon, 0.8);
+  background: rgba($tangerine, 0.2);
   border-bottom: 1px solid $white;
   border-left: 1px solid $white;
   border-right: 1px solid $white;
