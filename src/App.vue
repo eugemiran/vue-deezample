@@ -2,15 +2,20 @@
   <div id="app">
     <NavBar />
     <router-view />
+    <portal-target :name="MODALS" />
   </div>
 </template>
 
 <script lang="ts">
 import NavBar from "@/components/NavBar";
+import { MODALS } from "@/constants/portals";
 
 export default {
   components: {
     NavBar
+  },
+  created() {
+    this.MODALS = MODALS;
   }
 };
 </script>
