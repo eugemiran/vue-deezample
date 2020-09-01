@@ -1,4 +1,4 @@
-# target
+# Vue deezample
 
 ## Project setup
 ```
